@@ -38,9 +38,10 @@ add() and destroy() if desired)
 
 
 ### every
-#####number, required
+#####number, optional
 
-the number of times the eventType can fire before triggering onTrigger
+the number of times the eventType can fire before triggering onTrigger, defaults
+to 1
 
 
 ### event
