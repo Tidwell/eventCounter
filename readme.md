@@ -26,11 +26,11 @@ $('.clicker').eventCounter({
 ## Options
 ```
 {
-  //used for calling methods like add() and destroy(), string
+  //used for calling methods like add() and destroy(), string, optional
   counterId: 'xyz',
   //number of times the event can fire before triggering onTrigger, number
   every: 2,
-  //event to track (passed to jQuery.bind), string
+  //event to track (passed to jQuery.bind), string, defaults 'click'
   eventType: 'click',
   //function to call, function
   onTrigger: function(){}
