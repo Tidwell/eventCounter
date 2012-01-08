@@ -25,21 +25,30 @@ $('.clicker').eventCounter({
 
 ## Options
 ```
-{
-  //used for calling methods like add() and destroy(), string, optional
-  counterId: 'xyz',
-  //number of times the event can fire before triggering onTrigger, number
-  every: 2,
-  //event to track (passed to jQuery.bind), string, defaults 'click'
-  eventType: 'click',
-  //function to call, function
-  onTrigger: function(){}
-}
-```
+In short, calling the plugin on a set of elements will create an eventCounter
+named {counterId} that counts the number of times {eventType} is fired on
+$(elements) and every {every} times the eventType occurs, will fire {onTrigger}
 
-Sets up an eventCounter [named {counterId}] that counts the number
-of times {eventType} is fired on $(elements) and every {every} times the
-eventType occurs, will fire {onTrigger}
+
+### counterId
+#####string, optional
+
+used for calling methods like add() and destroy().  If one isn't submitted,
+a identifier will be generated internally (that can be used programatically with
+add() and destroy() if desired)
+
+
+### every
+#####number, required
+
+the number of times the eventType can fire before triggering onTrigger
+
+
+### event
+#####string, optional
+
+event to track (passed to jQuery.bind), defaults to 'click'
+
 
 ### onTrigger
 
