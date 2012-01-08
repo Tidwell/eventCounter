@@ -34,6 +34,8 @@
   /*
 		Private Vars
 	*/
+	var eventCounters = {}
+	
   var triggerElementSets = {};
 	var eventCounters = {}
 	var optionSets = {};
@@ -62,7 +64,7 @@
 		elements.bind(options.eventType+namespace,
 									function(event){handleEvent(event, options)});
 		//add to element sets
-		triggerElementSets[options.counterId] = elements;
+		triggerElementSets[options.counterId] = triggerElementSets[options.counterId].add(elements);
 	};
 	
 	//unbinds events and removes all $(elements) from the element set with [id]
@@ -97,7 +99,8 @@
       }			
 			//generate an id if the user didn't pass one in
       if (!options.counterId) { i++; options.counterId = 'counter'+i; }
-      eventCounters[options.counterId] = 0;
+      triggerElementSets[options.counterId] = $();
+			eventCounters[options.counterId] = 0;
 			optionSets[options.counterId] = options;
       addToElementSet(this, options);
 			//maintain chainability

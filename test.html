@@ -9,7 +9,7 @@
 				counterId: 'firstCounter',
 				every: 5,
 				eventType: 'click',
-				onTrigger: function(triggeringElement, allPossibleTriggers) {
+				onTrigger: function(event, allPossibleTriggers) {
 					alert('triggered1, click me and click me 2 will no longer trigger anything');
 					$('.clicker').eventCounter('destroy').css('color', 'green');
 				}
@@ -20,8 +20,8 @@
 				counterId: 'secondCounter',
 				every: 3,
 				eventType: 'click',
-				onTrigger: function(triggeringElement, allPossibleTriggers) {
-					console.log(triggeringElement, allPossibleTriggers);
+				onTrigger: function(event, allPossibleTriggers) {
+					console.log(event, allPossibleTriggers);
 					timesTriggeredSecondCounter++;
 					alert('triggered2')
 					if (timesTriggeredSecondCounter === 2) {
@@ -32,6 +32,19 @@
 					}
 				}
 			}).css('color', 'blue')
+			
+			var cnt = 4;
+			$('.clicker4').eventCounter({
+				counterId: 'testAdd',
+				every: 2,
+				eventType: 'click',
+				onTrigger: function(event, all) {
+					cnt++;
+					$('body').append('<div class="clicker'+cnt+'" id="sup">ClickMe'+cnt+'</div>')
+					$('.clicker'+cnt).eventCounter('add', 'testAdd')
+					console.log(event,all)
+				}
+			})
 		});
 		</script>
 	</head>
@@ -42,5 +55,6 @@
   	<div class="clicker2">Click Me 3</div>
 		<div class="clicker2">Click Me 4</div>
 
+		<div class="clicker4">Click Me 4</div>
 	</body>
 </html>
