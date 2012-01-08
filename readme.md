@@ -40,8 +40,9 @@ $('.clicker').eventCounter({
 Sets up an eventCounter [named {counterId}] that counts the number
 of times {eventType} is fired on $(elements) and every {every} times the
 eventType occurs, will fire {onTrigger}
-  
-onTrigger gets passed
+
+## onTrigger
+onTrigger is passed
 * The jQuery event object
 * The full set of elements that the counter is listening to
  
