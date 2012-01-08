@@ -7,29 +7,33 @@ See test.html
 ## Sample
 ###html
 ```
-  <div class="clicker">Click Me 1</div>
-  <div class="clicker">Click Me 2</div>
+<div class="clicker">Click Me 1</div>
+<div class="clicker">Click Me 2</div>
 ```
 ###js
 ```
-	$('.clicker').eventCounter({
-    counterId: 'firstCounter',
-    every: 5,
-    eventType: 'click',
-    onTrigger: function(event, allPossibleTriggers) {
-      alert('The clickers have been clicked 5 times');
-    }
-  });
+$('.clicker').eventCounter({
+  counterId: 'firstCounter',
+  every: 5,
+  eventType: 'click',
+  onTrigger: function(event, allPossibleTriggers) {
+    alert('The clickers have been clicked 5 times');
+  }
+});
 ```
 
 
 ## Options
 ```
 {
-  counterId: 'xyz', //used for calling methods like add() and destroy()
-  every: 2, //number of times the event can fire before triggering onTrigger
-  eventType: 'click', //event to track (passed to jQuery.bind)
-  onTrigger: function(){} //function to call
+  //used for calling methods like add() and destroy(), string
+  counterId: 'xyz',
+  //number of times the event can fire before triggering onTrigger, number
+  every: 2,
+  //event to track (passed to jQuery.bind), string
+  eventType: 'click',
+  //function to call, function
+  onTrigger: function(){}
 }
 ```
 
@@ -44,13 +48,13 @@ eventType occurs, will fire {onTrigger}
  	
 ## 	Additional methods
 ```
-  $(elements).eventCounter('destroy' [,counterId])
+$(elements).eventCounter('destroy' [,counterId])
 ```
 
 removes all tracking from $(elements), or just the tracking from counterId
 
 ```
-	$(elements).eventCounter('add', counterId)
+$(elements).eventCounter('add', counterId)
 ```
 
 adds $(elements) to the counterId tracking set
