@@ -41,9 +41,9 @@ Sets up an eventCounter [named {counterId}] that counts the number
 of times {eventType} is fired on $(elements) and every {every} times the
 eventType occurs, will fire {onTrigger}
   
-  onTrigger gets passed
-  	1.  The jQuery event object
-  	2.  The full set of elements that the counter is listening to
+onTrigger gets passed
+  1.  The jQuery event object
+  2.  The full set of elements that the counter is listening to
  
  	
 ## 	Additional methods
