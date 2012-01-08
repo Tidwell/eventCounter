@@ -41,7 +41,7 @@ Sets up an eventCounter [named {counterId}] that counts the number
 of times {eventType} is fired on $(elements) and every {every} times the
 eventType occurs, will fire {onTrigger}
 
-## onTrigger
+### onTrigger
 
 onTrigger is passed
 
