@@ -66,14 +66,15 @@ onTrigger is passed
 $(elements).eventCounter('destroy' [,counterId])
 ```
 
-removes all tracking from $(elements), or just the tracking from counterId
+removes all tracking from $(elements), or just the tracking from the
+'counterId' eventCounter
 
 ### add
 ```
 $(elements).eventCounter('add', counterId)
 ```
 
-adds $(elements) to the counterId tracking set
+adds $(elements) to the 'counterId' eventCounter
 
 
 ## Notes
