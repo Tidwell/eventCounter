@@ -42,7 +42,9 @@ of times {eventType} is fired on $(elements) and every {every} times the
 eventType occurs, will fire {onTrigger}
 
 ## onTrigger
+
 onTrigger is passed
+
 * The jQuery event object
 * The full set of elements that the counter is listening to
  
