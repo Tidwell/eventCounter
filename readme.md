@@ -42,8 +42,8 @@ of times {eventType} is fired on $(elements) and every {every} times the
 eventType occurs, will fire {onTrigger}
   
 onTrigger gets passed
-1.  The jQuery event object
-2.  The full set of elements that the counter is listening to
+* The jQuery event object
+* The full set of elements that the counter is listening to
  
  	
 ## 	Additional methods
@@ -64,7 +64,7 @@ adds $(elements) to the counterId tracking set
 
 ## Notes
 
-*  Only tested with jQuery 1.7.1 in Chrome
+* Only tested with jQuery 1.7.1 in Chrome
 
 ## Version History
 
