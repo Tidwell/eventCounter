@@ -43,6 +43,8 @@ eventType occurs, will fire {onTrigger}
 
 ### onTrigger
 
+#####function, optional
+
 onTrigger is passed
 
 * The jQuery event object
