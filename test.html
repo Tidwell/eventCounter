@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="eventCounter.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			$('.clicker').eventCounter({
+				counterId: 'firstCounter',
+				every: 5,
+				eventType: 'click',
+				onTrigger: function(triggeringElement, allPossibleTriggers) {
+					alert('triggered1, click me and click me 2 will no longer trigger anything');
+					$('.clicker').eventCounter('destroy').css('color', 'green');
+				}
+			});
+			
+			var timesTriggeredSecondCounter = 0;
+			$('.clicker2').eventCounter({
+				counterId: 'secondCounter',
+				every: 3,
+				eventType: 'click',
+				onTrigger: function(triggeringElement, allPossibleTriggers) {
+					console.log(triggeringElement, allPossibleTriggers);
+					timesTriggeredSecondCounter++;
+					alert('triggered2')
+					if (timesTriggeredSecondCounter === 2) {
+						$('.clicker2').eventCounter('destroy','secondCounter').fadeOut().fadeIn();
+						alert('Triggered twice, clickMe 3 and clickMe4 will no longer trigger this counter');
+						$('body').append('<div class="clicker3" id="sup">ClickMe5</div>')
+						$('#sup').eventCounter('add', 'secondCounter').css('color', 'red');
+					}
+				}
+			}).css('color', 'blue')
+		});
+		</script>
+	</head>
+	<body>
+		<div class="clicker">Click Me</div>
+		<div class="clicker">Click Me 2</div>
+  
+  	<div class="clicker2">Click Me 3</div>
+		<div class="clicker2">Click Me 4</div>
+
+	</body>
+</html>
