@@ -47,12 +47,14 @@ eventType occurs, will fire {onTrigger}
  
  	
 ## 	Additional methods
+### destroy
 ```
 $(elements).eventCounter('destroy' [,counterId])
 ```
 
 removes all tracking from $(elements), or just the tracking from counterId
 
+### add
 ```
 $(elements).eventCounter('add', counterId)
 ```
