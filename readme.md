@@ -1,9 +1,5 @@
 # jQuery eventCounter Plugin
 
-## Demo & Examples
-
-See test.html
-
 ## Sample
 ###html
 ```
