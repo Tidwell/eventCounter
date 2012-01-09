@@ -34,10 +34,8 @@
   /*
 		Private Vars
 	*/
-	var eventCounters = {}
-	
   var triggerElementSets = {};
-	var eventCounters = {}
+	var eventCounters = {};
 	var optionSets = {};
   var i; //tracks internally generated ids for elementSets
   
@@ -46,8 +44,8 @@
   */
 	//return the namespace appended with an id, if passed in
 	var generateNamespace = function(id) {
-		return namespace = '.eventCounter.'+(id?id:'');
-	}
+		return '.eventCounter.'+(id?id:'');
+	};
 
 	//handles an event click, incrementing the counter and trigger callback
 	var handleEvent = function(event, options) {
@@ -59,12 +57,13 @@
 		
 	//binds a set of elements to the specified event and adds to elementSets
 	var addToElementSet = function(elements, options) {		
+		var id = options.counterId;
 		//bind
 		var namespace = generateNamespace(options.counterId);
 		elements.bind(options.eventType+namespace,
-									function(event){handleEvent(event, options)});
+									function(event){handleEvent(event, options);});
 		//add to element sets
-		triggerElementSets[options.counterId] = triggerElementSets[options.counterId].add(elements);
+		triggerElementSets[id] = $(triggerElementSets[id]).add(elements);
 	};
 	
 	//unbinds events and removes all $(elements) from the element set with [id]
@@ -75,9 +74,9 @@
 		elements.unbind(options.eventType+namespace);
 		//remove from element set
 		triggerElementSets[id] = jQuery.grep(triggerElementSets[id], function(el) {
-			return !($.inArray(el, elements) != -1); 
+			return (!($.inArray(el, elements) !== -1)); 
 		});
-	}
+	};
 
 	//verifys that a counter has been instantiated with a set id
 	//if fails, $.error will throw and cancel execution of calling function
@@ -85,13 +84,12 @@
 		if (!triggerElementSets.hasOwnProperty(id)) {
 			$.error('No eventCounter exists with id '+id);
 		}
-	}
-
+	};
 	
   /*
 		Public Methods
 	*/
-  methods = {
+  var methods = {
     init: function(options) { 
       //override default settings by anything passed in with options
       if (options) { 
@@ -113,13 +111,13 @@
 			//if we have the id, dump the elements from just the specified set
 			if (id) {
 				checkId(id);
-				removeFromElementSet(this, id)
+				removeFromElementSet(this, id);
 			}
 			//otherwise, we need to dump the elements out of all of possible sets
 			else {
-				for(prop in triggerElementSets) {
+				for(var prop in triggerElementSets) {
 					if (triggerElementSets.hasOwnProperty(prop)) {
-						removeFromElementSet(this, prop)
+						removeFromElementSet(this, prop);
 					}
 				}
 			}
