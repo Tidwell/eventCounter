@@ -16,8 +16,6 @@
 		removes all tracking from $(elements), or just the tracking from counterId
 	$(elements).eventCounter('add', counterId)
 		adds $(elements) to the counterId tracking set
- 
- 
  *
 */
  
@@ -54,7 +52,11 @@
 			options.onTrigger(event, triggerElementSets[options.counterId]);
 		}
 	};
-		
+	
+	var incrementCounter = function(event,counterId) {
+		handleEvent(event,optionSets[counterId]);
+	}
+	
 	//binds a set of elements to the specified event and adds to elementSets
 	var addToElementSet = function(elements, options) {		
 		var id = options.counterId;
@@ -129,6 +131,12 @@
 			checkId(id);
 			addToElementSet($(this), optionSets[id]);
 			//maintain chainability
+			return this;
+		},
+		
+		increment: function(event,id) {
+			checkId(id);
+			incrementCounter(event,id);
 			return this;
 		}
   };		

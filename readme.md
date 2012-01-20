@@ -72,6 +72,13 @@ $(elements).eventCounter('add', counterId)
 
 adds $(elements) to the 'counterId' eventCounter
 
+### increment
+```
+$.fn.eventCounter('increment', event, counterId);
+```
+
+increments the 'counterId' eventCounter, and if triggers, will pass 'event'
+as the triggering event
 
 ## Notes
 
